@@ -9,24 +9,29 @@
     <input type="hidden" name="id" value="{{ $serie->id }}">
     <input required type="text" name="title" value="{{ $serie->title }}">
     <input required type="number" name="publication_year" value="{{ $serie->publication_year }}">
-    <select name="actors">
+    <select multiple name="actors[]">
     @foreach ($actors as $actor)
-      @if ($actor->id == $serie->actors[0]->id)
-        <option selected value="{{ $actor->id }}">{{ $actor->completeName() }}</option>
-      @else
-        <option value="{{ $actor->id }}">{{ $actor->completeName() }}</option>
-      @endif
+      <option value="{{$actor->id}}"
+      @foreach ($serie->actors as $serieActor )
+        @if ($serieActor->id == $actor->id)
+          selected
+        @endif
+      @endforeach
+      >{{ $actor->completeName()}}</option>
     @endforeach
   </select>
-  <select class="" name="genres">
+  </select>
+  <select multiple name="genres[]">
     @foreach ($genres as $genre)
-      @if ($genre->id == $serie->genres[0]->id)
-        <option selected value="{{ $genre->id }}">{{ $genre->completeName() }}</option>
-      @else
-        <option value="{{ $genre->id }}">{{ $genre->completeName() }}</option>
-      @endif
-    @endforeach
-  </select>
-    <input type="submit" name="" value="Insert">
+      <option value="{{$genre->id}}"
+        @foreach ($serie->genres as $serieGenre )
+          @if ($serieGenre->id == $genre->id)
+            selected
+          @endif
+        @endforeach
+        >{{ $genre->completeName()}}</option>
+      @endforeach
+    </select>
+        <input type="submit" name="" value="Insert">
   </form>
 @endsection
