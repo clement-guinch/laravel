@@ -1,0 +1,34 @@
+body{
+  background-color: #BD806C;
+}
+ul{
+  background-color: white;
+  /* background-color: #592548; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+}
+table{
+  border: 1px solid black;
+}
+li a{
+  text-decoration: none;
+  background-color:#BDB9A0;
+  color: ;
+}
+td p{
+  color: #BDB9A0;
+}
+td{
+  border: 1px solid black;
+}
+.bigTitle{
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+.logo{
+  display: flex;
+}
